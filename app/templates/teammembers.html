@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Team Members</h1>
+    <p>You have {{ num }} members</p>
+    <button onclick="location.href='{% url 'add_teammember' %}'">+</button>
+
+
+    <ul>
+        {% for teammember in teammembers %}
+            <li>
+                <a href="edit_member.html?id={{ teammember.id }}">
+                    {{ teammember.first_name }} {{ teammember.last_name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

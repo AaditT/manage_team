@@ -21,3 +21,6 @@ class TeamMember(models.Model):
     role = models.CharField(max_length=10, choices=ROLE.choices(), default=ROLE.REGULAR.value)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
