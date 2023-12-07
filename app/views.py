@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.template import loader
 from django.http import HttpResponse
 from .models import TeamMember
-from .forms import AddTeamMemberForm
+from .forms import AddTeamMemberForm, UpdateTeamMemberForm
 
 
 # Create your views here.
@@ -30,3 +30,16 @@ def add_teammember(request):
     else:
         form = AddTeamMemberForm()
     return render(request, 'add_teammember.html', {'form': form})
+
+def update_teammember(request, id):
+    teammember = TeamMember.objects.get(id=id)
+    if request.method == 'POST':
+        form = UpdateTeamMemberForm(request.POST, instance=teammember)
+        if form.is_valid():
+            form.save()
+            return redirect('teammembers')
+        else:
+            return HttpResponse("Invalid form data")
+    else:
+        form = UpdateTeamMemberForm(instance=teammember)
+    return render(request, 'update_teammember.html', {'form': form})

@@ -12,7 +12,7 @@
     <ul>
         {% for teammember in teammembers %}
             <li>
-                <a href="edit_member.html?id={{ teammember.id }}">
+                <a href="{% url 'update_teammember' id=teammember.id%}">
                     {{ teammember.first_name }} {{ teammember.last_name }}
                 </a>
             </li>
