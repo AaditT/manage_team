@@ -12,4 +12,8 @@ Prerequisites - Python 3.6 or later + pip (package manager)
 4. Run server `python manage.py runserver`
 5. Check web app at `http://localhost:8000/`
 
+## Demo
+
+
+https://github.com/AaditT/manage_team/assets/33333433/c3891f36-3d63-47a5-99ef-10041315a933
 
