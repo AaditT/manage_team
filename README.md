@@ -12,6 +12,11 @@ Prerequisites - Python 3.6 or later + pip (package manager)
 4. Run server `python manage.py runserver`
 5. Check web app at `http://localhost:8000/`
 
+
+## Instructions
+
+The **home page** displays all the members. Click the plus logo at the top to **add a member**. You can click on a member to either **edit info** or **delete the member**.
+
 ## Demo
 
 
