@@ -3,7 +3,7 @@ from django.template import loader
 from django.http import HttpResponse
 from .models import TeamMember
 from .forms import AddTeamMemberForm, UpdateTeamMemberForm
-
+from django.views.decorators.http import require_POST
 
 # Create your views here.
 
@@ -26,7 +26,7 @@ def add_teammember(request):
             form.save()
             return redirect('teammembers')
         else:
-            return HttpResponse("Invalid form data")
+            return render(request, 'add_teammember.html', {'form': form})
     else:
         form = AddTeamMemberForm()
     return render(request, 'add_teammember.html', {'form': form})
@@ -34,12 +34,28 @@ def add_teammember(request):
 def update_teammember(request, id):
     teammember = TeamMember.objects.get(id=id)
     if request.method == 'POST':
-        form = UpdateTeamMemberForm(request.POST, instance=teammember)
-        if form.is_valid():
-            form.save()
+        if 'action' in request.POST and request.POST['action'] == 'delete':
+            teammember.delete()
             return redirect('teammembers')
         else:
-            return HttpResponse("Invalid form data")
+            form = UpdateTeamMemberForm(request.POST, instance=teammember)
+            if form.is_valid():
+                form.save()
+                return redirect('teammembers')
+            else:
+                return HttpResponse("Invalid form data")
     else:
         form = UpdateTeamMemberForm(instance=teammember)
-    return render(request, 'update_teammember.html', {'form': form})
+    return render(
+        request, 'update_teammember.html', 
+        {
+            'form': form,
+            'teammember': teammember
+        }
+    )
+
+@require_POST
+def delete_teammember(request, id):
+    teammember = TeamMember.objects.get(id=id)
+    teammember.delete()
+    return redirect('teammembers')

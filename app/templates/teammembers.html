@@ -1,20 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static '../static/styles.css' %}">
 </head>
 <body>
     <h1>Team Members</h1>
-    <p>You have {{ num }} members</p>
-    <button onclick="location.href='{% url 'add_teammember' %}'">+</button>
+    <p>You have {{ num }} member{% if num != 1 %}s{% endif %}</p>
+    <button class="add-button" onclick="location.href='{% url 'add_teammember' %}'">+</button>
 
 
     <ul>
         {% for teammember in teammembers %}
-            <li>
-                <a href="{% url 'update_teammember' id=teammember.id%}">
-                    {{ teammember.first_name }} {{ teammember.last_name }}
-                </a>
+            <li onclick="location.href='{% url 'update_teammember' id=teammember.id %}'" style="cursor: pointer;">
+                <div class="member-container">
+                    <img src="{% static '../static/default.png' %}" alt="Profile Picture" class="profile-pic">
+                    <div class="member-info">
+                        <div class="member-name">{{ teammember.first_name }} {{ teammember.last_name }} {% if teammember.role == "admin" %}(admin){% endif %}</div>
+                        <div class="member-phone">{{ teammember.phone_number }}</div>
+                        <div class="member-email">{{ teammember.email }}</div>
+                    </div>
+                </div>
             </li>
         {% endfor %}
     </ul>

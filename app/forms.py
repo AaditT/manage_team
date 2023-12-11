@@ -1,5 +1,5 @@
 from django import forms
-from .models import TeamMember, ROLE
+from .models import TeamMember
 
 class AddTeamMemberForm(forms.ModelForm):
     class Meta:

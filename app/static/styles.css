@@ -1,0 +1,164 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+}
+h1 {
+    font-size: 24px;
+    padding-left: 10px;
+}
+p {
+    color: #666;
+    font-size: 18px;
+    padding-left: 10px;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+button {
+    background-color: #557FEF;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #557FEF;
+    
+}
+
+.add-button {
+    background-color: #f4f7f6;
+    color: #557FEF; /* Indigo */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    line-height: 50px;
+}
+.add-button:hover {
+    background-color: #557FEF;
+    color: white;
+}
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select {
+    width: calc(80% - 20px);
+    max-width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.member-container {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+    background-color: #fff;
+}
+
+.member-info {
+    padding: 10px;
+}
+
+.member-name {
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+}
+
+.member-phone,
+.member-email {
+    font-size: 0.8em;
+    color: #757575;
+    padding-top: 5px;
+}
+
+
+/* Generic button styling */
+button {
+    background-color: white;
+    border: 2px solid #557FEF;
+    color: #557FEF;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #557FEF;
+    color: white;
+}
+
+/* Delete button styling */
+.button-container button[name="action"][value="delete"] {
+    background-color: white;
+    border: 2px solid #f44336;
+    border-color: #f44336;
+    color: #f44336;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.button-container button[name="action"][value="delete"]:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Below styling applies for field error in forms */
+.field-errors {
+    color: #f44336;
+    padding-left: 10px;
+}

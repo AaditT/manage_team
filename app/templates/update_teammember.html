@@ -1,14 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Update Team Member</title>
+        <title>Edit Team Member</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+        <style>
+            .button-container {
+                display: flex;
+                justify-content: start;
+                gap: 10px;
+            }
+        </style>
     </head>
     <body>
-        <h1>Update Team Member</h1>
+        <h1>Edit team member</h1>
+        <p>Edit contact info, location and role.</p>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Update</button>
+            <div class="button-container">
+                <button type="submit" name="action" value="delete">Delete</button>
+                <button type="submit" name="action" value="save">Save</button>
+            </div>
         </form>
     </body>
 </html>
