@@ -15,5 +15,6 @@ Prerequisites - Python 3.6 or later + pip (package manager)
 ## Demo
 
 
-https://github.com/AaditT/manage_team/assets/33333433/c3891f36-3d63-47a5-99ef-10041315a933
+
+https://github.com/AaditT/manage_team/assets/33333433/9a1afd4d-7a6f-41e7-bedf-2d12d51893b5
 
